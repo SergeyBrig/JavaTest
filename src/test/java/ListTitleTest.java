@@ -47,7 +47,6 @@ public class ListTitleTest {
     @Test
     public void brandMenuTest() {
         driver.get(URL);
-
         driver.findElement(By.xpath("//a[@title='Amana Commercial Microwaves']")).click();
 
         List<WebElement> brandList = driver.findElements(By.xpath("//p[@class = 'description category_name']"));
