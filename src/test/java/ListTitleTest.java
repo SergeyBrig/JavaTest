@@ -54,4 +54,17 @@ public class ListTitleTest {
             Assert.assertTrue(brandList.get(i).getText().toLowerCase().contains("amana"));
         }
     }
+
+    @Test
+    public void brand2MenuTest() {
+        driver.get(URL);
+
+        driver.findElement(By.xpath("//a[@title ='Cambro']")).click();
+
+        List<WebElement> brand2List = driver.findElements(By.xpath ("/div[@class='category-page']/a/p[@class='description category_name']"));
+        for (int i = 0; i < brand2List.size(); i++) {
+            Assert.assertTrue(brand2List.get(i).getText().toLowerCase().contains("cambro"));
+        }
+    }
 }
+
