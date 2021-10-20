@@ -47,7 +47,6 @@ public class BrigTest {
         WebElement actualResult = driver.findElement(By.xpath("//div/ol/li"));
 
         Assert.assertEquals(actualResult.getText(), expectedResult);
-
     }
 
     @Test
@@ -60,7 +59,6 @@ public class BrigTest {
         String expectedResult = "http://automationpractice.com/index.php?controller=password";
 
         Assert.assertEquals(actualResult, expectedResult);
-
     }
 
     @Test
@@ -77,6 +75,5 @@ public class BrigTest {
         String actualResult = driver.getCurrentUrl();
 
         Assert.assertEquals(actualResult, expectedResult);
-
     }
 }
