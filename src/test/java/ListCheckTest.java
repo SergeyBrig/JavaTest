@@ -88,10 +88,11 @@ public class ListCheckTest {
         Assert.assertTrue(titleText.getText().contains("24\" x 108\""));
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.webstaurantstore.com/regency-16-gauge-type-304-stainless-steel-pass-through-shelf-with-overshelf-108-x-24/600PTSD24108.html");
     }
+    @Test
     private void eddToCart() {
         driver.get(URL);
 
-        driver.findElement(SEARCHFIELD).sendKeys("220SPRDWNEN3");
+        driver.findElement(SEARCHFIELD).sendKeys("220SPRDWNEN3"+ "\n");
 
         List<WebElement> sizeVariations = driver.findElements(By.xpath("//ul[@class = 'nav nav-pills nav-stacked']/li"));
         for (int i = 0; i < sizeVariations.size(); i++) {
@@ -100,8 +101,13 @@ public class ListCheckTest {
                 break;
             }
         }
-        driver.findElement(By.xpath("//input[@id = 'buyButton']")).click();
+        driver.findElement(By.xpath("//input[@id ='qty']")).sendKeys("2");
+        driver.findElement(By.xpath("//input[@id ='buyButton']")).click();
         driver.findElement(By.xpath("//a[@data-testid='cart-nav-link']")).click();
+        WebElement orderItem = driver.findElement(By.xpath("//span[@id= 'cartItemCountSpan']"));
+
+        Assert.assertEquals(orderItem.getText(), "21");
+
 
 
 
