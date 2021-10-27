@@ -84,7 +84,26 @@ public class ListCheckTest {
         }
         WebElement titleText = driver.findElement(By.id("page-header-description"));
 
+
         Assert.assertTrue(titleText.getText().contains("24\" x 108\""));
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.webstaurantstore.com/regency-16-gauge-type-304-stainless-steel-pass-through-shelf-with-overshelf-108-x-24/600PTSD24108.html");
+    }
+    private void eddToCart() {
+        driver.get(URL);
+
+        driver.findElement(SEARCHFIELD).sendKeys("220SPRDWNEN3");
+
+        List<WebElement> sizeVariations = driver.findElements(By.xpath("//ul[@class = 'nav nav-pills nav-stacked']/li"));
+        for (int i = 0; i < sizeVariations.size(); i++) {
+            if(sizeVariations.get(i).getText().contains("5 1/2\"")) {
+                sizeVariations.get(i).click();
+                break;
+            }
+        }
+        driver.findElement(By.xpath("//input[@id = 'buyButton']")).click();
+        driver.findElement(By.xpath("//a[@data-testid='cart-nav-link']")).click();
+
+
+
     }
 }
