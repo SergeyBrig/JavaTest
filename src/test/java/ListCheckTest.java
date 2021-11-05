@@ -59,7 +59,7 @@ public class ListCheckTest {
                 break;
             }
         }
-        List<WebElement> categoryList = driver.findElements(By.xpath("//div/a/h2"));
+        List<WebElement> categoryList = driver.findElements(By.xpath("//div/a/h2[@data-testid='displayTitle']"));
         for(int i = 0; i < categoryList.size(); i++) {
             if(categoryList.get(i).getText().contains("Hotel Furniture")) {
                 categoryList.get(i).click();
@@ -108,8 +108,7 @@ public class ListCheckTest {
 
         Assert.assertEquals(orderItem.getText(), "21");
 
-
-
-
     }
+
+
 }
